@@ -1,0 +1,27 @@
+
+---Downloaded files---
+The import files for: Medical Elementor were successfully downloaded!
+Initial max execution time = 3600
+Files info:
+Site URL = https://onecons.local.com:444
+Data file = D:\xampp7\www\onecons.local.com/wp-content/uploads/2024/03/demo-content-import-file_2024-03-16__06-42-37.xml
+Widget file = D:\xampp7\www\onecons.local.com/wp-content/uploads/2024/03/demo-widgets-import-file_2024-03-16__06-42-37.json
+Customizer file = not defined!
+Redux files:
+pix_options -> D:\xampp7\www\onecons.local.com/wp-content/themes/essentials/inc/demo-content/sites/medical/medical-elementor-options.json 
+
+
+---Importing widgets---
+Main Sidebar : 
+
+PixFort Search - Search - Imported
+PixFort Promo Box - Call to action - Imported
+Tag Cloud - No Title - Imported
+PixFort Recent Posts - Recent Posts - Imported
+PixFort Categories - Categories - Imported
+PixFort Social Links - Social Links - Imported
+
+
+
+---Importing Redux settings---
+Redux settings import for: pix_options finished successfully!
