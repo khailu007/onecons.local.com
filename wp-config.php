@@ -20,16 +20,16 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'khachhang_wp_onecons' );
+define( 'DB_NAME', "khachhang_wp_nguyenhanh" );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', "root" );
 
 /** Database password */
-define( 'DB_PASSWORD', 'd@t@base' );
+define( 'DB_PASSWORD', "d@t@base" );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost:3316' );
+define( 'DB_HOST', "localhost:3316" );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -85,11 +85,14 @@ define( 'WP_DEBUG', false );
 
 
 
+define( 'DUPLICATOR_AUTH_KEY', ',L9jK^:FmJ0L!7e*fXGCItMAg13;8l|R/5PKNa4pxdn%Q $V;,6{po#vw]vvL6Hr' );
+define( 'WP_PLUGIN_DIR', 'D:/xampp7/www/nguyenhanh.local.com/wp-content/plugins' );
+define( 'WPMU_PLUGIN_DIR', 'D:/xampp7/www/nguyenhanh.local.com/wp-content/mu-plugins' );
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+	define( 'ABSPATH', dirname(__FILE__) . '/' );
 }
 
 /** Sets up WordPress vars and included files. */

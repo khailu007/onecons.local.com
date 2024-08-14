@@ -49,7 +49,7 @@ if(!empty($_GET["post_intro"])){
 	}
 }
 	?>
-	<div class="col-12 col-lg-10 offset-lg-1">
+	<div class="col-12 col-md-12 col-lg-12">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main">
 
@@ -65,35 +65,7 @@ if(!empty($_GET["post_intro"])){
 		</div>
 	</div>
 
-<div class="col-12 col-md-2 col-lg-1 offset-lg-1 ">
-	<div class="pix-my-20 pix-post-meta-box sticky-top pix-sticky-top-adjust" style="top:120px;">
-		<?php do_action( 'pix_post_meta_box_start'); ?>
-		<?php
-		if( function_exists('get_pixfort_likes') ){
-			?>
-			<div class="bg-white shadow-sm rounded-lg w-100 pix-py-10 pix-mb-10 text-center line-height-1">
-				<?php
-				echo get_pixfort_likes();
-				?>
-			</div>
-			<?php
-		}
-
-		if(comments_open()){
-		?>
-			<div class="pix-post-meta-comments bg-white shadow-sm rounded-lg w-100 pix-py-10 pix-mb-10 text-center line-height-1">
-				<a href="<?php echo esc_url( get_comments_link() ); ?>" class="text-xs text-body-default svg-body-default">
-					<span class="pr-1">
-						<?php echo pix_load_inline_svg(get_template_directory().'/inc/images/blog/blog-post-comments-icon.svg'); ?>
-					</span>
-					<span class="align-middle font-weight-bold"><?php echo esc_attr( get_comments_number() ); ?></span>
-				</a>
-			</div>
-		<?php } ?>
-		<?php do_action( 'pix_post_meta_box_end'); ?>
-	</div>
-</div>
-<div class="col-12 col-md-8 offset-md-22 ">
+<div class="col-12 col-md-12 col-lg-12">
 	<div class="content-area pix-post-area">
 		<main class="site-main post-full-width">
 			<article <?php post_class(); ?>>
@@ -133,66 +105,14 @@ if(!empty($_GET["post_intro"])){
 					            }
 					        }
 							if(!function_exists('essentials_core_plugin')){
-								the_title( '<h1 class="pix-post-title h4 pix-mt-10">', '</h1>', true );
+								the_title( '<h1 class="pix-post-title pix-mt-10 pix-mb-10">', '</h1>', true );
 							}else{
-								the_title( '<h1 class="pix-post-title h4 pix-mt-10 '.$title_sliding.' font-weight-bold" data-class="'.$text_class.'">', '</h1>', true );
+								the_title( '<h1 class="pix-post-title pix-mt-10 pix-mb-10 '.$title_sliding.' font-weight-bold" data-class="'.$text_class.'">', '</h1>', true );
 							}
 
 						}
 
 						?>
-
-						<div class="entry-meta pix-post-meta-inner d-flex align-items-center pix-my-20">
-							<div class="pix-post-meta-author text-heading-default font-weight-bold">
-								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="pix-post-entry-author text-heading-default font-weight-bold">
-									<img class="pix_blog_md_avatar pix-mr-10 shadow" src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr( $author ); ?>">
-									<span class="text-sm"><?php echo esc_attr( $author ); ?></span>
-								</a>
-							</div>
-							<div class="flex-fill text-right mr-2">
-								<div class="pix-post-meta-badges">
-								<?php
-								foreach ($cats as $value) {
-									$badge_attrs = array(
-										'text'	=> $value->name,
-										'text_size'	=> 'custom',
-										'text_custom_size'		=> '12px',
-										'bold'  => 'font-weight-bold',
-										'secondary-font'  => 'secondary-font',
-										'custom_css'	=> 'padding:5px 10px;line-height:14px;',
-										'link'      => get_category_link($value->term_id)
-									);
-									if(function_exists('sc_pix_badge')){
-										echo sc_pix_badge($badge_attrs);
-									}else{
-										?>
-								            <a href="<?php echo esc_url(get_category_link($value->term_id)); ?>">
-									    		<span class="d-inline-block mr-1">
-									    			<span class="badge bg-primary-light text-primary pix-px-10 pix-py-5" style="margin-right:3px;line-height:14px;">
-									    				<span class="" style="font-size:12px;">
-									    					<?php echo esc_attr($value->name); ?>
-									    				</span>
-									    			</span>
-									    		</span>
-								    		</a>
-										<?php
-									}
-
-								}
-								?>
-								</div>
-							</div>
-							<div class="pix-post-meta-date flex-fill2 text-right text-body-default text-sm">
-
-								<a class="pix-post-entry-date mb-0 d-inline-block text-body-default svg-body-default" href="<?php echo get_permalink(); ?>">
-									<span class="pr-1">
-										<?php echo pix_load_inline_svg(get_template_directory().'/inc/assets/blog/blog-post-date-icon.svg'); ?>
-									</span>
-									<span class="text-xs font-weight-bold"><?php echo get_the_date(); ?></span>
-								</a>
-
-							</div>
-						</div><!-- .entry-meta -->
 					<?php endif; ?>
 				</header><!-- .entry-header -->
 
@@ -326,32 +246,3 @@ if(!empty($_GET["post_intro"])){
 			</main><!-- #main -->
 		</div><!-- #primary -->
 	</div>
-
-
-	<?php
-	if($opts['has_sidebar']){
-		get_sidebar();
-	}
-	?>
-
-	<!-- Post navigation -->
-	<div class="col-12">
-		<?php pix_post_navigation(); ?>
-	</div>
-
-	<?php
-		// Related posts
-		get_pix_related_posts();
-	?>
-
-	<?php
-	// Comments
-	if ( comments_open() || get_comments_number() ) :
-		?>
-		<div class="col-12 col-md-8 offset-md-2 pix-pt-40 pix-pb-80">
-			<?php comments_template(); ?>
-		</div>
-		<?php
-	endif;
-
-	?>

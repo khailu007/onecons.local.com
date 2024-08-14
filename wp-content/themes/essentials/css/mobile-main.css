@@ -1,0 +1,25 @@
+
+
+@media only screen and (max-width: 767px) {
+    #pix-entry-content p {
+        font-size: 14px;
+    }
+    .one-project_related-read-more {
+        font-size: 14px;
+    }
+    .one-project_related_heading {
+        font-size: 25px!important;
+    }
+    .one_project_related-title a {
+        font-size: 18px!important;
+    }
+    .one_project_related-excerpt p {
+        font-size: 14px!important;
+    }
+    .one_project_related-excerpt {
+        min-height: 106px;
+    }
+    #pix-entry-content h2 {
+        font-size: 20px;
+    }
+}

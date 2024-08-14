@@ -145,6 +145,72 @@ if(get_post_type()=='post' && !empty(pix_get_option('blog-full-width-layout'))){
 			endwhile;
 			?>
         </div>
+            <!-- Begin Project related -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <h2 class="one-project_related_heading">Bài viết liên quan</h2>
+                </div>
+                <?php
+                    $html = '';
+                    $relatedproducts = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => '3' ) );
+                    if ( $relatedproducts->have_posts() ) :
+                        while ( $relatedproducts->have_posts() ) : 
+                            $relatedproducts->the_post();
+                            if( $currentProductId != get_the_ID() ) :
+                                $html .= '<div class="col-lg-4 col-md-6 col-12 pix-pt-10">';
+                                $html .= '<article class="one_project-related-article" >';
+                                //
+                                $postId = get_the_ID();
+                                $postTitle = get_the_title();
+                                $postUrl = get_permalink();
+                                $postAvatar = get_the_post_thumbnail_url();
+                                $postExcerpt = get_the_excerpt();
+                                //
+                                $featured_image_full = get_the_post_thumbnail($postId, 'full', array('class' => 'attachment-full size-full'));
+                                //
+                                $html .= '<div class="one-project_related_card">';
+                                $html .= '<a class="one-project_related-thumbnail-link" href="'.$postUrl.'">';
+                                $html .= '<div class="one-project_related-thumbnail-img">';
+                                $html .= $featured_image_full;
+                                $html .= '</div>';
+                                //
+                                // $terms = get_the_terms($productId, 'price_nhom' );
+                                // foreach ( $terms as $term ) {
+                                //     $html .= '<div class="one_project_related-brand">';
+                                //     $html .= $term->name;
+                                //     $html .= '</div>';
+                                // }
+                                $html .= '</a>';
+                                //
+                                $html .= '<div class="one_project_related-text">';
+                                $html .= '<h3 class="one_project_related-title">';
+                                $html .= '<a href="'.$postUrl.'" alt="'.$postTitle.'" title="'.$postTitle.'">';
+                                $html .= $postTitle;
+                                $html .= '</h3>';
+                                $html .= '</a>';
+                                //
+                                $html .= '<div class="one_project_related-excerpt">';
+                                $html .= '<p>';
+                                $html .= $postExcerpt;
+                                $html .= '</p>';
+                                $html .= '</div>';
+                                $html .= '<a class="one-project_related-read-more" href="'.$postUrl.'" alt="'.$postTitle.'" title="'.$postTitle.'">';
+                                $html .= 'Xem thêm';
+                                $html .= '</a>';
+                                $html .= '</div>';
+                                //
+                                $html .= '</div>';
+                                $html .= '</article>';
+                                $html .= '</div>';
+                            endif;
+                        endwhile;
+                        wp_reset_query();
+                    endif;
+                    echo $html;
+                ?>
+            </div>
+        <!-- End Project content -->
+
     </div>
 </div>
 <?php
